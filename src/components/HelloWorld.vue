@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted() {
-    axios.get("http://localhost:8000/api").then(res => this.greeting = res.data);
+    axios.get("/api").then(res => this.greeting = res.data);
   }
 }
 </script>
