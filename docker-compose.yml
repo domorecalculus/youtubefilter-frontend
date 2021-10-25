@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+
+  youtubefilter-frontend:
+    container_name: youtubefilter-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '8080:8080'
+
+networks:
+  default: 
+    external: true
+    name: net
