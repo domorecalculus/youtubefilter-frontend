@@ -5,18 +5,9 @@
       <img src="../assets/Title.png" >
     </div>
     <div class="login">
-      <div class="card">
-        <form> 
-        <div class="form-outline ">
-          <input type="email" id="typeEmail" class="form-control" />
-          <label class="form-label" for="typeEmail">Email input</label>
-        </div>
-        <div class="form-outline login-input">
-          <input type="password" id="typePassword" class="form-control" />
-          <label class="form-label" for="typePassword">Password input</label>
-        </div>
-        </form>
-      </div>
+      <v-card elevation="2">
+        
+      </v-card>
     </div>
   </div>
 </template>
