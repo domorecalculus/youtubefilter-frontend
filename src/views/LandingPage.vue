@@ -37,6 +37,13 @@ import axios from 'axios';
 export default {
     components: {
     },
+    created() {
+      if (localStorage.getItem("token")){
+        this.$root.$data.isLoggedIn = true;
+        this.$router.push("/feed");
+        return;
+      }
+    },
     data() {
       return {
         showLogin: true,
@@ -60,6 +67,10 @@ export default {
       async login() {
         const res = await axios.post("/auth/login/", {"username": this.loginEmail,"password": this.loginPassword})
         console.log(res);
+        // this.$set(this.$root.$data, "userToken", res.data.access);
+        localStorage.setItem("token", res.data.access);
+        this.$root.$data.isLoggedIn = true;
+        this.$router.push("/feed");
       },
       async register() {
         if (!this.allFieldsExist) {
@@ -69,6 +80,14 @@ export default {
         
         const res = await axios.post("/auth/register/", {"username": this.registerEmail, "email": this.registerEmail,"password": this.registerPassword})
         console.log(res);
+        if (res.status === 201) {
+          const res2 = await axios.post("/auth/login/", {"username": this.registerEmail,"password": this.registerPassword})
+          console.log(res2);
+          // this.$set(this.$root.$data, "userToken", res2.data.access);
+          localStorage.setItem("token", res2.data.access);
+          this.$root.$data.isLoggedIn = true;
+          this.$router.push("/feed");
+        }
       }
     }
 

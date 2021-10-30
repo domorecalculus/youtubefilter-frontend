@@ -8,6 +8,10 @@ module.exports = {
           "/auth": {
             target: "http://web:8000",
             changeOrigin: true,
+          },
+          "/admin": {
+            target: "http://web:8000",
+            changeOrigin: true,
           }
         }
   },
