@@ -9,7 +9,7 @@
         <div v-if=showLogin>
           <h2>Sign In</h2>
           <v-text-field v-model="loginEmail" color="primary" label="Email" outlined></v-text-field>
-          <v-text-field v-model="loginPassword" label="Password" type="password" outlined></v-text-field>
+          <v-text-field v-model="loginPassword" label="Password" type="password" outlined @keyup.enter="login"></v-text-field>
           <v-btn color="primary" @click="login">Sign In</v-btn>
           <hr>
           <p>Don't have an account?</p>
@@ -19,7 +19,7 @@
           <h2>Create Account</h2>
           <v-text-field v-model="registerEmail" color="primary" label="Email" outlined></v-text-field>
           <v-text-field v-model="registerPassword" label="Password" type="password" outlined></v-text-field>
-          <v-text-field v-model="registerPasswordConfirm" label="Confirm Password" type="password" outlined></v-text-field>
+          <v-text-field v-model="registerPasswordConfirm" label="Confirm Password" type="password" outlined @keyup.enter="register"></v-text-field>
           <p v-if="registerPassword && !passwordsMatch">Passwords must match</p>
           <p v-if="registerErrorMessage" class="error-message">{{registerErrorMessage}}</p>
           <v-btn color="primary" @click="register">Create Account</v-btn>

@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import LandingPage from '../views/LandingPage.vue'
-import Feed from '../views/Feed.vue'
+import SignedInContent from '../views/SignedInContent.vue'
+import Feed from '../components/Feed.vue'
+import SearchResults from '../components/SearchResults.vue'
 
 Vue.use(VueRouter)
 
@@ -12,10 +14,20 @@ const routes = [
     component: LandingPage
   },
   {
-    path: '/feed',
-    name: 'Feed',
-    component: Feed
+    path: '/account',
+    component: SignedInContent,
+    children: [
+      {
+        path: '/feed',
+        component: Feed
+      },
+      {
+        path: '/search',
+        component: SearchResults
+      }
+    ]
   }
+
   // {
     // path: '/about',
     // name: 'About',

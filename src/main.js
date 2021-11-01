@@ -9,6 +9,7 @@ Vue.config.productionTip = false
 
 let data = {
   isLoggedIn: false,
+  searchResults: [],
 }
 
 new Vue({

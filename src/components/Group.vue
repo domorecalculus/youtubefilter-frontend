@@ -1,5 +1,5 @@
 <template>
-  <div class="group">
+  <div class="group" @click="$emit('wasClicked')">
     <h2>{{title}}</h2>
   </div>
 </template>
